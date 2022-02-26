@@ -15,9 +15,9 @@ Role Name (AppDynamicsMonitoringRole)
 TODO: 
 create resources
 REDIRECT to console with input parameters
-check DD example
-create a page with sumo-like button that creates stack
+create a page with a button that creates stack
 test on 2 linked accounts
+s3 bucket policy?
 
 validate templates api?
 assume root? that should not be a case
