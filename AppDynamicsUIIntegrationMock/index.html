@@ -1,7 +1,14 @@
 <script>
-    function runTest() {
-        alert("I am an alert box!");
+    function createResources() {
+        region="eu-west-2"
+        templateUrl="https://cf-templates-cloud-connection.s3.eu-west-2.amazonaws.com/IAM_Monitoring_Policy_and_Role.yml"
+        stackName="MyStackFromURL"
+        parameter1Key="AppDynamicsExternalId"
+        parameter1Value="cloud-connection-client-x"
+        parameter2Key="AppDynamicsAccountId"
+        parameter2Value="123456789012"
+        window.location.href=`https://${region}.console.aws.amazon.com/cloudformation/home?region=${region}#/stacks/create/review?templateURL=${templateUrl}&stackName=${stackName}&param_${parameter1Key}=${parameter1Value}&param_${parameter2Key}=${parameter2Value}`
     }
   </script>
   
-  <button onclick="runTest();">Run the test!</button>
+  <button onclick="createResources();">Run the test!</button>
