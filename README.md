@@ -1,24 +1,19 @@
 
-Input:
-AppDynamicsAccountId
-AppDynamicsExternalID
+### Inputs
+- AppDynamicsAccountId
+- AppDynamicsExternalID
 
-Process:
-Create Policy (AppDynamicsMonitoringPolicy)
-Create Role (AppDynamicsMonitoringRole)
-Attach Policy to Role
-Pulling CF from AppD S3 bucket
+### Process
+- Create Policy (AppDynamicsMonitoringPolicy)
+- Create Role (AppDynamicsMonitoringRole)
+- Attach Policy to Role
 
-Output:
-Role Name (AppDynamicsMonitoringRole)
+### UI Integration
+- Mock UI with a create button
+- Redirect to CloudFormation stack creation template from S3 bucket
 
-TODO: 
-create resources
-REDIRECT to console with input parameters
-create a page with a button that creates stack
-test on 2 linked accounts
-s3 bucket policy?
-
-validate templates api?
-assume root? that should not be a case
+### questions
+- s3 bucket policy? test on 2 linked accounts
+- validate templates api?
+- assume root? that should not be a case
 
