@@ -4,14 +4,14 @@ Metadata:
 Description: 'AWS CloudFormation IAM_Monitoring_Policy_and_Role: Creates AppDynamics monitoring policy and role.'
 Parameters:
   AppDynamicsExternalId:
-    NoEcho: 'true'
+    #NoEcho: 'true'
     Type: String
     Description: AppDynamics External ID
     MinLength: '2'
     MaxLength: '1224'
     ConstraintDescription: external ID must be between 1 and 1224 characters
   AppDynamicsAccountId:
-    NoEcho: 'true'
+    #NoEcho: 'true'
     Type: String
     Description: AppDynamics Account ID
     MinLength: '12'
@@ -35,7 +35,7 @@ Resources:
   AppDynamicsMonitoringPolicy:
     Type: 'AWS::IAM::ManagedPolicy'
     Properties:
-      ManagedPolicyName: !Join [ "-", [ !Ref "AWS::Region", !Ref AWSIAMPolicyName] ] 
+      ManagedPolicyName: !Ref AWSIAMPolicyName #!Join [ "-", [ !Ref "AWS::Region", !Ref AWSIAMPolicyName] ] 
       Path: "/"
       PolicyDocument:
         Version: '2012-10-17'
@@ -61,7 +61,7 @@ Resources:
     Type: 'AWS::IAM::Role'
     DependsOn: AppDynamicsMonitoringPolicy
     Properties:
-      RoleName: !Join [ "-", [ !Ref "AWS::Region", !Ref AWSIAMRoleName] ] 
+      RoleName: !Ref AWSIAMRoleName # !Join [ "-", [ !Ref "AWS::Region", !Ref AWSIAMRoleName] ] 
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
