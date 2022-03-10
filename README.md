@@ -19,18 +19,13 @@ Mock UI to fill-in parameters and create resources from CloudFormation template
 
 ## CloudFormationTemplates
 
-### Inputs
+Inputs:
 - AppDynamicsAccountId
 - AppDynamicsExternalID
 
-### Template creates resources
+Template creates resources:
 - Create Policy (AppDynamicsMonitoringPolicy)
 - Create Role (AppDynamicsMonitoringRole)
 - Attach Policy to Role
 
-
-#### questions
-- s3 bucket policy? test on 2 linked accounts
-- validate templates api?
-- assume root? that should not be a case
-
+Upload template to S3 bucket to use it in order to create resources (with mock UI or CLI).
