@@ -35,7 +35,7 @@ Resources:
   AppDynamicsMonitoringPolicy:
     Type: 'AWS::IAM::ManagedPolicy'
     Properties:
-      ManagedPolicyName: !Ref AWSIAMPolicyName #!Join [ "-", [ !Ref "AWS::Region", !Ref AWSIAMPolicyName] ] 
+      ManagedPolicyName: !Ref AWSIAMPolicyName
       Path: "/"
       PolicyDocument:
         Version: '2012-10-17'
@@ -61,14 +61,14 @@ Resources:
     Type: 'AWS::IAM::Role'
     DependsOn: AppDynamicsMonitoringPolicy
     Properties:
-      RoleName: !Ref AWSIAMRoleName # !Join [ "-", [ !Ref "AWS::Region", !Ref AWSIAMRoleName] ] 
+      RoleName: !Ref AWSIAMRoleName
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
           - Effect: Allow
             Principal:
               AWS: !Sub 
-                - 'arn:aws:iam::${account_id}:root'
+                - '${account_id}'
                 - { account_id: !Ref AppDynamicsAccountId }
             Action: sts:AssumeRole
             Condition:
