@@ -13,7 +13,7 @@
         document.getElementById("inputAppDynamicsAccountId").value = "123456789012";
         document.getElementById("inputRegion").value = "eu-west-2";
         document.getElementById("inputStackName").value = "MyStackFromURL";
-        document.getElementById("inputTemplateUrl").value = "https://cf-templates-cloud-connection.s3.eu-west-2.amazonaws.com/IAM_Monitoring_Policy_and_Role.yml";
+        document.getElementById("inputTemplateUrl").value = "https://cf-templates-cloud-connection-appd.s3.eu-west-2.amazonaws.com/IAM_Monitoring_Policy_and_Role.yml";
 
         document.getElementById("errorMessage").innerHTML = "";
     }
@@ -61,20 +61,20 @@
 <input type="text" id="inputAppDynamicsAccountId" name="inputAppDynamicsAccountId" required minlength="4" maxlength="30"
     size="35">
 
-<br><br>
-<label for="inputRegion">AWS Region (9 characters):</label>
 <br>
-<input type="text" id="inputRegion" name="inputRegion" required minlength="9" maxlength="9" size="35">
+<label style="display: none;" for="inputRegion">AWS Region (9 characters):</label>
+<br>
+<input type="hidden" id="inputRegion" name="inputRegion" required minlength="9" maxlength="9" size="35">
 
-<br><br>
-<label for="inputStackName">AWS CloudFormation Stack Name (3 to 128 characters, alphanumeric and hyphens):</label>
 <br>
-<input type="text" id="inputStackName" name="inputStackName" required minlength="3" maxlength="128" size="35">
+<label style="display: none;" for="inputStackName">AWS CloudFormation Stack Name (3 to 128 characters, alphanumeric and hyphens):</label>
+<br>
+<input type="hidden" id="inputStackName" name="inputStackName" required minlength="3" maxlength="128" size="35">
 
-<br><br>
-<label for="inputTemplateUrl">AWS CloudFormation Template URL (10 to 1024 characters):</label>
 <br>
-<input type="text" id="inputTemplateUrl" name="inputTemplateUrl" required minlength="10" maxlength="1024" size="120">
+<label style="display: none;" for="inputTemplateUrl">AWS CloudFormation Template URL (10 to 1024 characters):</label>
+<br>
+<input type="hidden" id="inputTemplateUrl" name="inputTemplateUrl" required minlength="10" maxlength="1024" size="120">
 
 
 <br><br>
