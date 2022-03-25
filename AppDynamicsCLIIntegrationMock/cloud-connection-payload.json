@@ -1,0 +1,9 @@
+{
+    "type": "aws",
+    "displayName": "AWS dev",
+    "description": "Description for this AWS role delegation connection",
+    "details": {
+      "accountId": "<account-id>",
+      "accessType": "role_delegation"
+    }
+}
