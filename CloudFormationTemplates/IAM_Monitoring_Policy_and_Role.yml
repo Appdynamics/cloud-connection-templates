@@ -9,8 +9,6 @@ Parameters:
     #NoEcho: 'true'
     Type: String
     Description: The role delegation external ID. Generate the external ID in AppDynamics Cloud. 
-    MinLength: '2'
-    MaxLength: '1224'
     ConstraintDescription: External ID is required 
   AppDynamicsAccountId:
     Type: String
