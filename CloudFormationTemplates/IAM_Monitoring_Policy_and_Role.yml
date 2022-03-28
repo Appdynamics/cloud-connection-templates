@@ -1,38 +1,35 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Metadata:
   License: Apache-2.0
-Description: 'AWS CloudFormation IAM_Monitoring_Policy_and_Role: Creates AppDynamics monitoring policy and role.'
+Description:  >- 
+  This CloudFormation template creates an AWS IAM policy 
+  and role for AppDynamics Cloud Monitoring Integration.
 Parameters:
   AppDynamicsExternalId:
     #NoEcho: 'true'
     Type: String
-    Description: AppDynamics External ID
+    Description: The role delegation external ID. Generate the external ID in AppDynamics Cloud. 
     MinLength: '2'
     MaxLength: '1224'
-    ConstraintDescription: external ID must be between 1 and 1224 characters
+    ConstraintDescription: External ID is required 
   AppDynamicsAccountId:
-    #NoEcho: 'true'
     Type: String
-    Description: AppDynamics Account ID
+    Description: The AppDynamics Cloud AWS account ID that will assume the IAM role.  
     MinLength: '12'
     MaxLength: '12'
-    ConstraintDescription: account number must be a 12-digit number that uniquely identifies an AWS account
+    ConstraintDescription: AppDynamics Cloud Account ID is required. 
   AWSIAMRoleName:
     Type: String
-    Description: Override default AWS IAM Role name for AppDynamics monitoring
-    Default: AppDynamicsMonitoringRole
-    MinLength: '1'
-    MaxLength: '64'
-    ConstraintDescription: role name must be between 1 and 64 characters
+    Description: Update the default AWS IAM role name with AppDynamics Cloud role name 
+    Default: AppDynamicsCloudMonitoringRole
+    ConstraintDescription: The role name is required. 
   AWSIAMPolicyName:
     Type: String
-    Description: Override default AWS IAM Policy name for AppDynamics monitoring
-    Default: AppDynamicsMonitoringPolicy
-    MinLength: '1'
-    MaxLength: '64'
-    ConstraintDescription: policy name must be between 1 and 64 characters
+    Description: Update the default AWS IAM policy name with AppDynamics Cloud policy name
+    Default: AppDynamicsCloudMonitoringPolicy
+    ConstraintDescription: The policy name is required. 
 Resources:
-  AppDynamicsMonitoringPolicy:
+  AppDynamicsCloudMonitoringPolicy:
     Type: 'AWS::IAM::ManagedPolicy'
     Properties:
       ManagedPolicyName: !Ref AWSIAMPolicyName
@@ -57,9 +54,9 @@ Resources:
             - cloudwatch:ListMetrics
             - rds:DescribeDBClusters
           Resource: "*"
-  AppDynamicsMonitoringRole:
+  AppDynamicsCloudMonitoringRole:
     Type: 'AWS::IAM::Role'
-    DependsOn: AppDynamicsMonitoringPolicy
+    DependsOn: AppDynamicsCloudMonitoringPolicy
     Properties:
       RoleName: !Ref AWSIAMRoleName
       AssumeRolePolicyDocument:
@@ -76,8 +73,8 @@ Resources:
                 sts:ExternalId: !Ref AppDynamicsExternalId
       Path: /
       ManagedPolicyArns:
-        - !Ref AppDynamicsMonitoringPolicy
+        - !Ref AppDynamicsCloudMonitoringPolicy
 Outputs:
   IAMAWSRoleArn:
-    Value: !GetAtt AppDynamicsMonitoringRole.Arn   
+    Value: !GetAtt AppDynamicsCloudMonitoringRole.Arn   
     Description: Created AWS IAM Role ARN 
