@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Metadata:
-  License: Apache-2.0
+  License: TOOLS AND UTILITIES LICENSE
 Description:  >- 
   This CloudFormation template creates an AWS IAM policy 
   and role for AppDynamics Cloud Monitoring Integration.
